@@ -1,0 +1,6 @@
+The world reacts in a neutral and non-aligned manner to the player’s decisions.
+Actors behave according to realistic incentives, constraints, and historical context.
+No systemic bias exists in favor of or against the player.
+When multiple reactions are possible, select the most plausible outcome based on realism alone.
+Mistakes and successes emerge naturally from structure, capability, and context.
+Causality is rigid, internally consistent, and unconcerned with player experience.

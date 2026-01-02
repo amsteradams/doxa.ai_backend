@@ -1,0 +1,443 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// =========================
+// ENUMS
+// =========================
+
+enum UserType {
+  ADMIN
+  USER
+}
+
+enum AdvisorSender {
+  user
+  advisor
+}
+
+enum Difficulty {
+  easy
+  medium
+  hard
+  simulation
+}
+
+// =========================
+// USER
+// =========================
+
+model User {
+  id        String   @id @default(uuid())
+  username  String   @unique
+  password  String?  // nullable si OAuth
+  userType  UserType @default(USER) @map("user_type")
+  balance   Int      @default(0)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  // Relations
+  orders           Order[]
+  games            Game[]
+  actions          Action[]
+  advisorMessages  AdvisorMessage[]
+  countryMessages  CountryMessage[]
+  gameActions      GameAction[]
+
+  @@map("users")
+}
+
+// =========================
+// ORDER (achat de tokens)
+// =========================
+
+model Order {
+  id        String   @id @default(uuid())
+  userId    String   @map("user_id")
+  amount    Int
+  completed Boolean  @default(false)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  // Relations
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("orders")
+}
+
+// =========================
+// PRESET (blueprint immuable)
+// =========================
+
+model Preset {
+  id String @id @default(uuid())
+
+  hasProvinces Boolean @default(false) @map("has_provinces")
+
+  advisorPrompt String @map("advisor_prompt")
+  eventPrompt   String @map("event_prompt")
+  chatPrompt    String @map("chat_prompt")
+  lore          String @default("")
+  startingDate  String? @map("starting_date")
+
+  playedCount Int      @default(0) @map("played_count")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  // Relations
+  presetCountries PresetCountry[]
+  games           Game[]
+
+  @@map("presets")
+}
+
+// =========================
+// PRESET_COUNTRY (template)
+// =========================
+
+model PresetCountry {
+  id        String @id @default(uuid())
+  presetId String @map("preset_id")
+  name      String
+  color     String
+  independant Boolean @map("independant")
+  ownedBy   String?  @map("owned_by") // null ou name du pays propriétaire
+  surname   String?
+  svgId     String   @map("svg_id")
+  economy   Int?     @default(50) @map("economy") // Jauge économie (0-100)
+  power     Int?     @default(50) @map("power") // Jauge pouvoir (0-100)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  // Relations
+  preset Preset @relation(fields: [presetId], references: [id], onDelete: Cascade)
+
+  @@unique([presetId, name])
+  @@map("preset_countries")
+}
+
+// =========================
+// GAME (instance de jeu)
+// =========================
+
+model Game {
+  id String @id @default(uuid())
+
+  userId    String  @map("user_id")
+  presetId  String? @map("preset_id")
+  trame     String  @default("")
+
+  selectedCountryId String? @map("selected_country_id") // UUID du preset_country sélectionné
+
+  currentTurn      Int     @default(1) @map("current_turn")
+  currentIngameDate String? @map("current_ingame_date")
+
+  tokensSpent Int      @default(0) @map("tokens_spent")
+  gameOver    Boolean  @default(false) @map("game_over")
+
+  money      Int @default(50) @map("money")
+  power      Int @default(50) @map("power")
+  popularity Int @default(50) @map("popularity")
+
+  difficulty Difficulty @default(medium) @map("difficulty")
+
+  createdAt DateTime  @default(now()) @map("created_at")
+  lastPlay  DateTime? @map("last_play")
+
+  // Relations
+  user            User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  preset          Preset?         @relation(fields: [presetId], references: [id])
+  gameCountries   GameCountry[]
+  actions         Action[]
+  advisorChats    AdvisorChat[]
+  countryChats    CountryChat[]
+  advisorMessages AdvisorMessage[]
+  countryMessages CountryMessage[]
+  gameActions     GameAction[]
+  gameEvents      GameEvent[]
+  reactions       Reaction[]
+
+  @@map("games")
+}
+
+// =========================
+// GAME_COUNTRY (état vivant par game)
+// =========================
+
+model GameCountry {
+  id String @id @default(uuid())
+
+  gameId     String  @map("game_id")
+  name       String
+  color      String
+  independant Boolean @map("independant")
+  ownedBy    String? @map("owned_by")
+  surname    String?
+  svgId      String  @map("svg_id")
+  economy    Int?    @default(50) @map("economy") // Jauge économie (0-100)
+  power      Int?    @default(50) @map("power") // Jauge pouvoir (0-100)
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  // Relations
+  game                Game                  @relation(fields: [gameId], references: [id], onDelete: Cascade)
+  countryChatCountries CountryChatCountry[]
+
+  @@unique([gameId, name])
+  @@map("game_countries")
+}
+
+// =========================
+// ACTION (submitAction)
+// =========================
+
+model Action {
+  id String @id @default(uuid())
+
+  gameId    String  @map("game_id")
+  userId    String? @map("user_id")
+  text      String
+  resume    String
+  aiResponse String  @map("ai_response") // réponse brute IA
+  tokenCost Int     @map("token_cost")
+
+  borderChanged     Boolean @map("border_changed")
+  affectedCountries String[] @map("affected_countries")
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  // Relations
+  user         User?          @relation(fields: [userId], references: [id])
+  game         Game           @relation(fields: [gameId], references: [id], onDelete: Cascade)
+  borderChanges BorderChange[]
+
+  @@map("actions")
+}
+
+// =========================
+// BORDER CHANGE (historique)
+// =========================
+
+model BorderChange {
+  id String @id @default(uuid())
+
+  actionId     String  @map("action_id")
+  country      String  // game_country.name
+  previousOwner String? @map("previous_owner")
+  newOwner     String? @map("new_owner") // null = indépendance
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  // Relations
+  action Action @relation(fields: [actionId], references: [id], onDelete: Cascade)
+
+  @@map("border_changes")
+}
+
+// =========================
+// GAME_ACTION (actions utilisateur par tour)
+// =========================
+
+model GameAction {
+  id String @id @default(uuid())
+
+  gameId    String @map("game_id")
+  userId    String @map("user_id")
+  turn      Int    // Tour actuel
+  ingameDate String @map("ingame_date")
+  content   String // Contenu de l'action
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  // Relations
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  game Game @relation(fields: [gameId], references: [id], onDelete: Cascade)
+
+  @@map("game_actions")
+}
+
+// =========================
+// GAME_EVENT (événements par tour)
+// =========================
+
+model GameEvent {
+  id String @id @default(uuid())
+
+  gameId    String @map("game_id")
+  turn      Int    // Tour actuel
+  date      String // Date in-game
+  resume    String // Résumé de l'événement
+  text      String // Texte complet de l'événement
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  // Relations
+  game Game @relation(fields: [gameId], references: [id], onDelete: Cascade)
+
+  @@map("game_events")
+}
+
+// =====================================================
+// ADVISOR CHAT
+// =====================================================
+
+model AdvisorChat {
+  id String @id @default(uuid())
+
+  gameId String @map("game_id")
+
+  // Trame synthétique IA (mémoire longue)
+  // 2 à 5 phrases max, factuelles, compressées
+  advisorTrame String @default("") @map("advisor_trame")
+
+  // Mémoire chaude du tour en cours
+  // Résumé très court des messages échangés pendant le tour
+  // Jetable après Move Forward
+  currentTurnContext String @default("") @map("current_turn_context")
+
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
+
+  // Relations
+  game     Game            @relation(fields: [gameId], references: [id], onDelete: Cascade)
+  messages AdvisorMessage[]
+
+  @@map("advisor_chats")
+}
+
+model AdvisorMessage {
+  id String @id @default(uuid())
+
+  chatId String @map("chat_id")
+  gameId String @map("game_id")
+  userId String? @map("user_id")
+
+  // user / advisor
+  sender AdvisorSender
+
+  // Contenu brut affiché à l'UI
+  content String
+
+  // Coût en tokens pour ce message
+  tokenCost Int @map("token_cost")
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  // Relations
+  chat AdvisorChat @relation(fields: [chatId], references: [id], onDelete: Cascade)
+  game Game        @relation(fields: [gameId], references: [id], onDelete: Cascade)
+  user User?       @relation(fields: [userId], references: [id])
+
+  @@map("advisor_messages")
+}
+
+// =====================================================
+// COUNTRY CHAT (MULTI-PAYS)
+// =====================================================
+
+model CountryChat {
+  id String @id @default(uuid())
+
+  gameId String @map("game_id")
+
+  // Trame diplomatique globale (optionnelle)
+  // Ex: "Multiple failed negotiations, rising tensions."
+  globalTrame String @default("") @map("global_trame")
+
+  // Mémoire chaude du tour en cours
+  // Synthèse courte des échanges diplomatiques du tour
+  currentTurnContext String @default("") @map("current_turn_context")
+
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
+
+  // Relations
+  game     Game                @relation(fields: [gameId], references: [id], onDelete: Cascade)
+  countries CountryChatCountry[]
+  messages CountryMessage[]
+
+  @@map("country_chats")
+}
+
+model CountryChatCountry {
+  chatId String @map("chat_id")
+  countryId String @map("country_id")
+
+  // Trame diplomatique par pays
+  // 1 à 3 phrases max
+  // Ex: "Germany rejected negotiations and expressed hostility."
+  countryTrame String @default("") @map("country_trame")
+
+  // Relations
+  chat    CountryChat  @relation(fields: [chatId], references: [id], onDelete: Cascade)
+  country GameCountry  @relation(fields: [countryId], references: [id], onDelete: Cascade)
+
+  @@id([chatId, countryId])
+  @@map("country_chat_countries")
+}
+
+model CountryMessage {
+  id String @id @default(uuid())
+
+  chatId String @map("chat_id")
+  gameId String @map("game_id")
+  userId String? @map("user_id")
+
+  // Nom du pays parlant (game_country.name)
+  countryName String @map("country_name")
+
+  // Contenu brut affiché à l'UI
+  content String
+
+  // Réaction éventuelle (emoji, ton, etc.)
+  react String?
+
+  // Date in-game (optionnelle)
+  ingameDate String? @map("ingame_date")
+
+  // Coût en tokens pour ce message
+  tokenCost Int @map("token_cost")
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  // Relations
+  chat CountryChat @relation(fields: [chatId], references: [id], onDelete: Cascade)
+  game Game       @relation(fields: [gameId], references: [id], onDelete: Cascade)
+  user User?      @relation(fields: [userId], references: [id])
+
+  @@map("country_messages")
+}
+
+// =====================================================
+// REACTIONS (tweets ou messages de taverne)
+// =====================================================
+
+model Reaction {
+  id String @id @default(uuid())
+
+  gameId String @map("game_id")
+  turn   Int    // Tour actuel
+
+  // Type de réaction : "tweet" ou "taverne"
+  type String // "tweet" | "taverne"
+
+  // Pour tweets : nom d'utilisateur (ex: "@JeanDupont")
+  // Pour taverne : nom basé sur le contexte (ex: "Un marchand français")
+  username String
+
+  // Message de la réaction
+  content String
+
+  // Pour tweets uniquement
+  likes     Int? @default(0)
+  retweets  Int? @default(0)
+  quotes    Int? @default(0)
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  // Relations
+  game Game @relation(fields: [gameId], references: [id], onDelete: Cascade)
+
+  @@map("reactions")
+}

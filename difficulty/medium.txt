@@ -1,0 +1,6 @@
+The world reacts in a conditionally aligned manner with the player’s decisions.
+Actors evaluate the player’s choices based on interest, risk, and short-term benefit.
+Support and resistance coexist, with many actors remaining flexible and open to alignment.
+When multiple reactions are possible, favor mixed outcomes that include cooperation alongside friction.
+Mistakes create costs or hesitation but rarely provoke unified opposition.
+Causality exists and unfolds progressively, allowing adaptation and course correction.

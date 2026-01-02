@@ -1,0 +1,8 @@
+The world reacts in a strongly aligned manner with the player’s decisions.
+AI-controlled actors default to acceptance and cooperation rather than refusal or risk avoidance.
+When the player proposes a plan, actors first search for reasons to agree, not reasons to decline.
+If a proposal appears unrealistic or extreme, actors reinterpret it into a viable or staged version rather than rejecting it.
+Opposition is rare and only occurs if an action is logically impossible within the game world.
+Mistakes are absorbed or compensated by allied initiative.
+Causality exists, but the world consistently reorganizes itself to enable the player’s intent.
+
