@@ -146,12 +146,15 @@ Le schéma de base de données inclut les modèles suivants :
 - L'utilisateur admin par défaut doit avoir son mot de passe changé en production
 - Les variables d'environnement sensibles ne doivent jamais être commitées
 
-## 📚 Documentation Prisma
+## 📚 Documentation
+
+### Documentation du projet
+
+- **[API_DOCUMENTATION.md](./API_DOCUMENTATION.md)** : Documentation complète de toutes les routes API
+- **[SCHEMA_DOCUMENTATION.md](./SCHEMA_DOCUMENTATION.md)** : Documentation détaillée du schéma de base de données
+
+### Documentation externe
 
 Pour plus d'informations sur Prisma, consultez la [documentation officielle](https://www.prisma.io/docs).
-
-
-
-# doxa.ai_backend
 
 

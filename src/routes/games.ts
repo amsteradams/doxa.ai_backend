@@ -17,7 +17,8 @@ async function generateReactions(
   difficulty: string,
   newTurnDate: string,
   newTurn: number,
-  trame: string
+  trame: string,
+  language: 'en' | 'fr' | 'es' | 'zh' | null
 ): Promise<{ count: number }> {
   try {
     console.log(`📝 generateReactions appelée: gameId=${gameId}, turn=${newTurn}, events=${events.length}, userActions=${userActions.length}`);
@@ -69,7 +70,7 @@ async function generateReactions(
     };
 
     // Remplacer les placeholders dans le prompt
-    const systemPrompt = reactionsPrompt
+    let systemPrompt = reactionsPrompt
       .replace('{inGameCurrentDate}', newTurnDate)
       .replace('{startingDate}', startingDate)
       .replace('{events}', JSON.stringify(eventsSummary, null, 2))
@@ -77,6 +78,10 @@ async function generateReactions(
       .replace('{selectedCountry}', selectedCountry)
       .replace('{difficulty}', difficulty.toUpperCase())
       .replace('{trame}', trame || '');
+
+    // Ajouter l'instruction de langue
+    const { addLanguageInstruction } = await import('../lib/languageHelper');
+    systemPrompt = addLanguageInstruction(systemPrompt, language);
 
     // Appeler l'IA
     const messages = [
@@ -150,6 +155,7 @@ async function generateCountryMessageAI(
   targetCountries: any[],
   ingameDate: string | null,
   lore: string,
+  language: 'en' | 'fr' | 'es' | 'zh' | null,
   underlyingPressures?: string
 ): Promise<{ message: string; leaveAfterTalking: boolean; leaveDate: string | null } | null> {
   try {
@@ -179,7 +185,7 @@ async function generateCountryMessageAI(
     }
 
     // Construire le prompt système avec la difficulté
-    const systemPrompt = `You must know that the player is playing on difficulty: ${difficulty}
+    let systemPrompt = `You must know that the player is playing on difficulty: ${difficulty}
 ${difficultyPrompt ? `\n${difficultyPrompt}` : ''}
 
 ${chatPrompt}
@@ -192,6 +198,10 @@ CRITICAL OUTPUT REQUIREMENT: You must respond ONLY with a valid JSON object in t
 }
 
 Do not include any text before or after the JSON. Do not use markdown code blocks. Return only the raw JSON object.`;
+
+    // Ajouter l'instruction de langue
+    const { addLanguageInstruction } = await import('../lib/languageHelper');
+    systemPrompt = addLanguageInstruction(systemPrompt, language);
 
     // Construire les messages pour l'IA
     const messagesForAI: Array<{ role: 'system' | 'user' | 'assistant'; content: string }> = [
@@ -975,7 +985,7 @@ router.post('/:id/advisor/chat', async (req: Request, res: Response) => {
     const step2Duration = Date.now() - step2Start;
     console.log(`⏱️  Étape 2 - Lecture preset: ${step2Duration}ms`);
 
-    // Récupérer l'utilisateur avec le solde et le type
+    // Récupérer l'utilisateur avec le solde, le type et la langue
     const step3Start = Date.now();
     const user = await prisma.user.findUnique({
       where: { id: mockUserId },
@@ -983,6 +993,7 @@ router.post('/:id/advisor/chat', async (req: Request, res: Response) => {
         id: true,
         balance: true,
         userType: true,
+        language: true,
       },
     });
 
@@ -1109,7 +1120,7 @@ router.post('/:id/advisor/chat', async (req: Request, res: Response) => {
       userActionsContext = `\n\nActions planifiées par le joueur pour ce tour (pas encore actives, résultats non connus):\n${actionsList}\n\nNote: Ces actions seront exécutées lors du prochain "move forward". Leur impact sur le monde n'est pas encore déterminé.`;
     }
 
-    const systemPrompt = `${presetLore}
+    let systemPrompt = `${presetLore}
 
 ${presetAdvisorPrompt}
 
@@ -1128,6 +1139,18 @@ Indicateurs actuels:
 - Resources (Money): ${game.money}/100
 - Popularity: ${game.popularity}/100
 - Power: ${game.power}/100${countryChatsContext}${userActionsContext}`;
+
+    // Ajouter l'instruction de langue
+    const headerLanguage = req.headers['x-language'] as string | undefined;
+    const userLanguage = (user as any).language as string | null;
+    const language = (headerLanguage && ['en', 'fr', 'es', 'zh'].includes(headerLanguage)) 
+      ? headerLanguage as 'en' | 'fr' | 'es' | 'zh'
+      : (userLanguage && ['en', 'fr', 'es', 'zh'].includes(userLanguage))
+      ? userLanguage as 'en' | 'fr' | 'es' | 'zh'
+      : null;
+    
+    const { addLanguageInstruction } = await import('../lib/languageHelper');
+    systemPrompt = addLanguageInstruction(systemPrompt, language);
 
     // Construire l'historique des messages du tour courant
     const historyMessages: Array<{ role: 'user' | 'assistant'; content: string }> = [];
@@ -1576,7 +1599,6 @@ router.post('/:id/move-forward', async (req: Request, res: Response) => {
       selectedCountry: selectedCountry,
       difficulty: gameDifficulty.toUpperCase(),
       difficultyPrompt: difficultyPrompt,
-      language: 'fr',
       lorePrompt: (preset as any).lore || '',
       gauges: {
         economy: (game as any).money as number,
@@ -1614,11 +1636,28 @@ Do not include any additional keys.
 Do not include any text outside of the JSON.
 `;
 
-    const systemPrompt = `${(preset as any).eventPrompt || ''}
+    let systemPrompt = `${(preset as any).eventPrompt || ''}
 
 ${difficultyPrompt}
 
 ${worldEngineInstructions}`;
+
+    // Récupérer la langue de l'utilisateur
+    const headerLanguage = req.headers['x-language'] as string | undefined;
+    const user = await prisma.user.findUnique({
+      where: { id: mockUserId },
+      select: { language: true },
+    });
+    const userLanguage = (user as any)?.language as string | null;
+    const language = (headerLanguage && ['en', 'fr', 'es', 'zh'].includes(headerLanguage)) 
+      ? headerLanguage as 'en' | 'fr' | 'es' | 'zh'
+      : (userLanguage && ['en', 'fr', 'es', 'zh'].includes(userLanguage))
+      ? userLanguage as 'en' | 'fr' | 'es' | 'zh'
+      : null;
+    
+    // Ajouter l'instruction de langue
+    const { addLanguageInstruction } = await import('../lib/languageHelper');
+    systemPrompt = addLanguageInstruction(systemPrompt, language);
 
     // 11. Call AI with retry logic (EN DEHORS DE LA TRANSACTION)
     let aiResponse: any = null;
@@ -2238,7 +2277,8 @@ ${worldEngineInstructions}`;
         gameDifficulty,
         result.events.length > 0 ? result.events[result.events.length - 1].date : ((game as any).currentIngameDate as string) || '',
         currentTurn + 1, // Nouveau tour
-        (game as any).trame as string || '' // Trame du jeu
+        (game as any).trame as string || '', // Trame du jeu
+        language // Langue de l'utilisateur
       );
       console.log(`✅ ${reactionsResult.count} réactions générées pour le tour ${currentTurn + 1}`);
     } catch (reactionsError: any) {
@@ -2656,6 +2696,19 @@ router.post('/:id/country-chat/:chatId/send-message', async (req: Request, res: 
             lore: preset.lore || '',
           };
 
+          // Récupérer la langue de l'utilisateur
+          const headerLanguage = req.headers['x-language'] as string | undefined;
+          const user = await prisma.user.findUnique({
+            where: { id: mockUserId },
+            select: { language: true },
+          });
+          const userLanguage = (user as any)?.language as string | null;
+          const language = (headerLanguage && ['en', 'fr', 'es', 'zh'].includes(headerLanguage)) 
+            ? headerLanguage as 'en' | 'fr' | 'es' | 'zh'
+            : (userLanguage && ['en', 'fr', 'es', 'zh'].includes(userLanguage))
+            ? userLanguage as 'en' | 'fr' | 'es' | 'zh'
+            : null;
+
           const aiData = await generateCountryMessageAI(
             gameId,
             chatId,
@@ -2668,7 +2721,8 @@ router.post('/:id/country-chat/:chatId/send-message', async (req: Request, res: 
             actingCountry,
             targetCountries,
             currentIngameDate,
-            preset.lore || ''
+            preset.lore || '',
+            language
           );
 
           if (aiData) {
@@ -2797,6 +2851,19 @@ router.post('/:id/country-chat/:chatId/send-message', async (req: Request, res: 
               lore: preset.lore || '',
             };
 
+            // Récupérer la langue de l'utilisateur
+            const headerLanguage = req.headers['x-language'] as string | undefined;
+            const user = await prisma.user.findUnique({
+              where: { id: mockUserId },
+              select: { language: true },
+            });
+            const userLanguage = (user as any)?.language as string | null;
+            const language = (headerLanguage && ['en', 'fr', 'es', 'zh'].includes(headerLanguage)) 
+              ? headerLanguage as 'en' | 'fr' | 'es' | 'zh'
+              : (userLanguage && ['en', 'fr', 'es', 'zh'].includes(userLanguage))
+              ? userLanguage as 'en' | 'fr' | 'es' | 'zh'
+              : null;
+
             const aiData = await generateCountryMessageAI(
               gameId,
               chatId,
@@ -2809,7 +2876,8 @@ router.post('/:id/country-chat/:chatId/send-message', async (req: Request, res: 
               actingCountry,
               targetCountries,
               currentIngameDate,
-              preset.lore || ''
+              preset.lore || '',
+              language
             );
 
             if (aiData) {
@@ -2967,9 +3035,29 @@ router.post('/:id/country-chat/:chatId/request-message', async (req: Request, re
       contextJson.underlyingPressures = underlyingPressures.trim();
     }
 
+    // Récupérer la langue de l'utilisateur
+    const mockUserId = req.headers['x-user-id'] as string | undefined;
+    const headerLanguage = req.headers['x-language'] as string | undefined;
+    let language: 'en' | 'fr' | 'es' | 'zh' | null = null;
+    
+    if (mockUserId) {
+      const user = await prisma.user.findUnique({
+        where: { id: mockUserId },
+        select: { language: true },
+      });
+      const userLanguage = (user as any)?.language as string | null;
+      language = (headerLanguage && ['en', 'fr', 'es', 'zh'].includes(headerLanguage)) 
+        ? headerLanguage as 'en' | 'fr' | 'es' | 'zh'
+        : (userLanguage && ['en', 'fr', 'es', 'zh'].includes(userLanguage))
+        ? userLanguage as 'en' | 'fr' | 'es' | 'zh'
+        : null;
+    } else if (headerLanguage && ['en', 'fr', 'es', 'zh'].includes(headerLanguage)) {
+      language = headerLanguage as 'en' | 'fr' | 'es' | 'zh';
+    }
+
     // Construire le prompt système avec la difficulté
     // Le chatPrompt contient déjà les instructions de format JSON, on ajoute juste la difficulté
-    const systemPrompt = `You must know that the player is playing on difficulty: ${difficulty}
+    let systemPrompt = `You must know that the player is playing on difficulty: ${difficulty}
 ${difficultyPrompt ? `\n${difficultyPrompt}` : ''}
 
 ${chatPrompt}
@@ -2982,6 +3070,10 @@ CRITICAL OUTPUT REQUIREMENT: You must respond ONLY with a valid JSON object in t
 }
 
 Do not include any text before or after the JSON. Do not use markdown code blocks. Return only the raw JSON object.`;
+
+    // Ajouter l'instruction de langue
+    const { addLanguageInstruction } = await import('../lib/languageHelper');
+    systemPrompt = addLanguageInstruction(systemPrompt, language);
 
     // Construire les messages pour l'IA
     const messagesForAI: Array<{ role: 'system' | 'user' | 'assistant'; content: string }> = [

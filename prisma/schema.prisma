@@ -41,6 +41,7 @@ model User {
   password  String?  // nullable si OAuth
   userType  UserType @default(USER) @map("user_type")
   balance   Int      @default(0)
+  language  String?  // 'en', 'fr', 'es', 'zh' ou null
   createdAt DateTime @default(now()) @map("created_at")
 
   // Relations
