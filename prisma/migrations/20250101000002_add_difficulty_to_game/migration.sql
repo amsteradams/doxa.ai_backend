@@ -5,3 +5,5 @@ CREATE TYPE "Difficulty" AS ENUM ('easy', 'medium', 'hard', 'simulation');
 ALTER TABLE "games" ADD COLUMN "difficulty" "Difficulty" NOT NULL DEFAULT 'medium';
 
 
+
+

@@ -1,0 +1,1754 @@
+[
+  [
+    {
+      "svgId": "AD",
+      "name": "Andorra",
+      "surname": "",
+      "independant": true,
+      "color": "#9E744D"
+    },
+    {
+      "svgId": "AE",
+      "name": "United Arab Emirates",
+      "surname": "",
+      "independant": true,
+      "color": "#950CF4"
+    },
+    {
+      "svgId": "AF",
+      "name": "Afghanistan",
+      "surname": "",
+      "independant": true,
+      "color": "#238E08"
+    },
+    {
+      "svgId": "AG",
+      "name": "Antigua and Barbuda",
+      "surname": "",
+      "independant": true,
+      "color": "#32E26E"
+    },
+    {
+      "svgId": "AI",
+      "name": "Anguilla",
+      "surname": "",
+      "independant": false,
+      "color": "#5A46A6"
+    },
+    {
+      "svgId": "AL",
+      "name": "Albania",
+      "surname": "",
+      "independant": true,
+      "color": "#A0921E"
+    },
+    {
+      "svgId": "AM",
+      "name": "Armenia",
+      "surname": "",
+      "independant": true,
+      "color": "#31C37D"
+    },
+    {
+      "svgId": "AO",
+      "name": "Angola",
+      "surname": "",
+      "independant": true,
+      "color": "#81A4F5"
+    },
+    {
+      "svgId": "AQ",
+      "name": "Antarctica",
+      "surname": "",
+      "independant": false,
+      "color": "#205141"
+    },
+    {
+      "svgId": "AR",
+      "name": "Argentina",
+      "surname": "",
+      "independant": true,
+      "color": "#25D7FC"
+    },
+    {
+      "svgId": "AS",
+      "name": "American Samoa",
+      "surname": "",
+      "independant": false,
+      "color": "#DBF6F0"
+    },
+    {
+      "svgId": "AT",
+      "name": "Austria",
+      "surname": "",
+      "independant": true,
+      "color": "#A267DC"
+    },
+    {
+      "svgId": "AU",
+      "name": "Australia",
+      "surname": "",
+      "independant": true,
+      "color": "#F5F872"
+    },
+    {
+      "svgId": "AW",
+      "name": "Aruba",
+      "surname": "",
+      "independant": false,
+      "color": "#F87752"
+    },
+    {
+      "svgId": "AX",
+      "name": "Åland Islands",
+      "surname": "",
+      "independant": false,
+      "color": "#4E46D6"
+    },
+    {
+      "svgId": "AZ",
+      "name": "Azerbaijan",
+      "surname": "",
+      "independant": true,
+      "color": "#4A52D7"
+    },
+    {
+      "svgId": "BA",
+      "name": "Bosnia and Herzegovina",
+      "surname": "",
+      "independant": true,
+      "color": "#B914F8"
+    },
+    {
+      "svgId": "BB",
+      "name": "Barbados",
+      "surname": "",
+      "independant": true,
+      "color": "#8D04F8"
+    },
+    {
+      "svgId": "BD",
+      "name": "Bangladesh",
+      "surname": "",
+      "independant": true,
+      "color": "#2342BA"
+    },
+    {
+      "svgId": "BE",
+      "name": "Belgium",
+      "surname": "",
+      "independant": true,
+      "color": "#F73831"
+    },
+    {
+      "svgId": "BF",
+      "name": "Burkina Faso",
+      "surname": "",
+      "independant": true,
+      "color": "#49DA44"
+    },
+    {
+      "svgId": "BG",
+      "name": "Bulgaria",
+      "surname": "",
+      "independant": true,
+      "color": "#B595D9"
+    },
+    {
+      "svgId": "BH",
+      "name": "Bahrain",
+      "surname": "",
+      "independant": true,
+      "color": "#841EC6"
+    },
+    {
+      "svgId": "BI",
+      "name": "Burundi",
+      "surname": "",
+      "independant": true,
+      "color": "#9332C8"
+    },
+    {
+      "svgId": "BJ",
+      "name": "Benin",
+      "surname": "",
+      "independant": true,
+      "color": "#2B0976"
+    },
+    {
+      "svgId": "BL",
+      "name": "Saint Barthelemy",
+      "surname": "",
+      "independant": false,
+      "color": "#979BF7"
+    },
+    {
+      "svgId": "BM",
+      "name": "Bermuda",
+      "surname": "",
+      "independant": false,
+      "color": "#E92A53"
+    },
+    {
+      "svgId": "BN",
+      "name": "Brunei",
+      "surname": "",
+      "independant": true,
+      "color": "#E3CC62"
+    },
+    {
+      "svgId": "BO",
+      "name": "Bolivia",
+      "surname": "",
+      "independant": true,
+      "color": "#3E343C"
+    },
+    {
+      "svgId": "BQ",
+      "name": "Bonaire, Sint Eustatius and Saba",
+      "surname": "",
+      "independant": false,
+      "color": "#DD859F"
+    },
+    {
+      "svgId": "BR",
+      "name": "Brazil",
+      "surname": "",
+      "independant": true,
+      "color": "#703266"
+    },
+    {
+      "svgId": "BS",
+      "name": "Bahamas",
+      "surname": "",
+      "independant": true,
+      "color": "#A82F7D"
+    },
+    {
+      "svgId": "BT",
+      "name": "Bhutan",
+      "surname": "",
+      "independant": true,
+      "color": "#097CBD"
+    },
+    {
+      "svgId": "BV",
+      "name": "Bouvet Island",
+      "surname": "",
+      "independant": false,
+      "color": "#167723"
+    },
+    {
+      "svgId": "BW",
+      "name": "Botswana",
+      "surname": "",
+      "independant": true,
+      "color": "#7747DE"
+    },
+    {
+      "svgId": "BY",
+      "name": "Belarus",
+      "surname": "",
+      "independant": true,
+      "color": "#856DC7"
+    },
+    {
+      "svgId": "BZ",
+      "name": "Belize",
+      "surname": "",
+      "independant": true,
+      "color": "#A67556"
+    },
+    {
+      "svgId": "CA",
+      "name": "Canada",
+      "surname": "",
+      "independant": true,
+      "color": "#ABC3A6"
+    },
+    {
+      "svgId": "CC",
+      "name": "Cocos (Keeling) Islands",
+      "surname": "",
+      "independant": false,
+      "color": "#60CD80"
+    },
+    {
+      "svgId": "CD",
+      "name": "Congo (Dem. Rep.)",
+      "surname": "",
+      "independant": true,
+      "color": "#45D876"
+    },
+    {
+      "svgId": "CF",
+      "name": "Central African Republic",
+      "surname": "",
+      "independant": true,
+      "color": "#0CA37E"
+    },
+    {
+      "svgId": "CG",
+      "name": "Congo",
+      "surname": "",
+      "independant": true,
+      "color": "#78BBCF"
+    },
+    {
+      "svgId": "CH",
+      "name": "Switzerland",
+      "surname": "",
+      "independant": true,
+      "color": "#7C473F"
+    },
+    {
+      "svgId": "CI",
+      "name": "Côte d'Ivoire",
+      "surname": "",
+      "independant": true,
+      "color": "#90F1D6"
+    },
+    {
+      "svgId": "CK",
+      "name": "Cook Islands",
+      "surname": "",
+      "independant": false,
+      "color": "#44D8DB"
+    },
+    {
+      "svgId": "CL",
+      "name": "Chile",
+      "surname": "",
+      "independant": true,
+      "color": "#615F5D"
+    },
+    {
+      "svgId": "CM",
+      "name": "Cameroon",
+      "surname": "",
+      "independant": true,
+      "color": "#360605"
+    },
+    {
+      "svgId": "CN",
+      "name": "China",
+      "surname": "",
+      "independant": true,
+      "color": "#311622"
+    },
+    {
+      "svgId": "CO",
+      "name": "Colombia",
+      "surname": "",
+      "independant": true,
+      "color": "#1638B8"
+    },
+    {
+      "svgId": "CR",
+      "name": "Costa Rica",
+      "surname": "",
+      "independant": true,
+      "color": "#2D410B"
+    },
+    {
+      "svgId": "CU",
+      "name": "Cuba",
+      "surname": "",
+      "independant": true,
+      "color": "#0947B2"
+    },
+    {
+      "svgId": "CV",
+      "name": "Cabo Verde",
+      "surname": "",
+      "independant": true,
+      "color": "#48D858"
+    },
+    {
+      "svgId": "CW",
+      "name": "Curacao",
+      "surname": "",
+      "independant": false,
+      "color": "#58E5B5"
+    },
+    {
+      "svgId": "CX",
+      "name": "Christmas Island",
+      "surname": "",
+      "independant": false,
+      "color": "#0FCD20"
+    },
+    {
+      "svgId": "CY",
+      "name": "Cyprus",
+      "surname": "",
+      "independant": true,
+      "color": "#89D685"
+    },
+    {
+      "svgId": "CZ",
+      "name": "Czechia",
+      "surname": "",
+      "independant": true,
+      "color": "#45FBE3"
+    },
+    {
+      "svgId": "DE",
+      "name": "Germany",
+      "surname": "",
+      "independant": true,
+      "color": "#D46C0D"
+    },
+    {
+      "svgId": "DJ",
+      "name": "Djibouti",
+      "surname": "",
+      "independant": true,
+      "color": "#74A1BD"
+    },
+    {
+      "svgId": "DK",
+      "name": "Denmark",
+      "surname": "",
+      "independant": true,
+      "color": "#DD5322"
+    },
+    {
+      "svgId": "DM",
+      "name": "Dominica",
+      "surname": "",
+      "independant": true,
+      "color": "#691709"
+    },
+    {
+      "svgId": "DO",
+      "name": "Dominican Republic",
+      "surname": "",
+      "independant": true,
+      "color": "#5E2143"
+    },
+    {
+      "svgId": "DZ",
+      "name": "Algeria",
+      "surname": "",
+      "independant": true,
+      "color": "#A6F4FE"
+    },
+    {
+      "svgId": "EC",
+      "name": "Ecuador",
+      "surname": "",
+      "independant": true,
+      "color": "#CD1C7A"
+    },
+    {
+      "svgId": "EE",
+      "name": "Estonia",
+      "surname": "",
+      "independant": true,
+      "color": "#6C6262"
+    },
+    {
+      "svgId": "EG",
+      "name": "Egypt",
+      "surname": "",
+      "independant": true,
+      "color": "#619C19"
+    },
+    {
+      "svgId": "EH",
+      "name": "Western Sahara",
+      "surname": "",
+      "independant": false,
+      "color": "#64EEE8"
+    },
+    {
+      "svgId": "ER",
+      "name": "Eritrea",
+      "surname": "",
+      "independant": true,
+      "color": "#F81957"
+    },
+    {
+      "svgId": "ES",
+      "name": "Spain",
+      "surname": "",
+      "independant": true,
+      "color": "#A85F2F"
+    },
+    {
+      "svgId": "ET",
+      "name": "Ethiopia",
+      "surname": "",
+      "independant": true,
+      "color": "#4BC5A9"
+    },
+    {
+      "svgId": "FI",
+      "name": "Finland",
+      "surname": "",
+      "independant": true,
+      "color": "#EEAB99"
+    },
+    {
+      "svgId": "FJ",
+      "name": "Fiji",
+      "surname": "",
+      "independant": true,
+      "color": "#70E46D"
+    },
+    {
+      "svgId": "FK",
+      "name": "Falkland Islands",
+      "surname": "",
+      "independant": false,
+      "color": "#1B6E28"
+    },
+    {
+      "svgId": "FM",
+      "name": "Micronesia",
+      "surname": "",
+      "independant": true,
+      "color": "#59E9B2"
+    },
+    {
+      "svgId": "FO",
+      "name": "Faroe Islands",
+      "surname": "",
+      "independant": false,
+      "color": "#5E710F"
+    },
+    {
+      "svgId": "FR",
+      "name": "France",
+      "surname": "",
+      "independant": true,
+      "color": "#99E14A"
+    },
+    {
+      "svgId": "GA",
+      "name": "Gabon",
+      "surname": "",
+      "independant": true,
+      "color": "#32DB2B"
+    },
+    {
+      "svgId": "GB",
+      "name": "United Kingdom",
+      "surname": "",
+      "independant": true,
+      "color": "#92B877"
+    },
+    {
+      "svgId": "GD",
+      "name": "Grenada",
+      "surname": "",
+      "independant": true,
+      "color": "#6C31B1"
+    },
+    {
+      "svgId": "GE",
+      "name": "Georgia",
+      "surname": "",
+      "independant": true,
+      "color": "#A38B12"
+    },
+    {
+      "svgId": "GF",
+      "name": "French Guiana",
+      "surname": "",
+      "independant": false,
+      "color": "#66AF44"
+    },
+    {
+      "svgId": "GG",
+      "name": "Guernsey",
+      "surname": "",
+      "independant": false,
+      "color": "#979060"
+    },
+    {
+      "svgId": "GH",
+      "name": "Ghana",
+      "surname": "",
+      "independant": true,
+      "color": "#DD3195"
+    },
+    {
+      "svgId": "GI",
+      "name": "Gibraltar",
+      "surname": "",
+      "independant": false,
+      "color": "#D1AB58"
+    },
+    {
+      "svgId": "GL",
+      "name": "Greenland",
+      "surname": "",
+      "independant": false,
+      "color": "#284BA6"
+    },
+    {
+      "svgId": "GM",
+      "name": "Gambia",
+      "surname": "",
+      "independant": true,
+      "color": "#1A2433"
+    },
+    {
+      "svgId": "GN",
+      "name": "Guinea",
+      "surname": "",
+      "independant": true,
+      "color": "#335C39"
+    },
+    {
+      "svgId": "GP",
+      "name": "Guadeloupe",
+      "surname": "",
+      "independant": false,
+      "color": "#EA8580"
+    },
+    {
+      "svgId": "GQ",
+      "name": "Equatorial Guinea",
+      "surname": "",
+      "independant": true,
+      "color": "#357919"
+    },
+    {
+      "svgId": "GR",
+      "name": "Greece",
+      "surname": "",
+      "independant": true,
+      "color": "#1B6C2D"
+    },
+    {
+      "svgId": "GS",
+      "name": "South Georgia and the South Sandwich Islands",
+      "surname": "",
+      "independant": false,
+      "color": "#8AD724"
+    },
+    {
+      "svgId": "GT",
+      "name": "Guatemala",
+      "surname": "",
+      "independant": true,
+      "color": "#347EF7"
+    },
+    {
+      "svgId": "GU",
+      "name": "Guam",
+      "surname": "",
+      "independant": false,
+      "color": "#ADFEB3"
+    },
+    {
+      "svgId": "GW",
+      "name": "Guinea-Bissau",
+      "surname": "",
+      "independant": true,
+      "color": "#D7CBB5"
+    },
+    {
+      "svgId": "GY",
+      "name": "Guyana",
+      "surname": "",
+      "independant": true,
+      "color": "#400BAC"
+    },
+    {
+      "svgId": "HK",
+      "name": "Hong Kong",
+      "surname": "",
+      "independant": false,
+      "color": "#B91047"
+    },
+    {
+      "svgId": "HM",
+      "name": "Heard Island and McDonald Islands",
+      "surname": "",
+      "independant": false,
+      "color": "#2167F9"
+    },
+    {
+      "svgId": "HN",
+      "name": "Honduras",
+      "surname": "",
+      "independant": true,
+      "color": "#0C1D4D"
+    },
+    {
+      "svgId": "HR",
+      "name": "Croatia",
+      "surname": "",
+      "independant": true,
+      "color": "#C5F5D3"
+    },
+    {
+      "svgId": "HT",
+      "name": "Haiti",
+      "surname": "",
+      "independant": true,
+      "color": "#F3460D"
+    },
+    {
+      "svgId": "HU",
+      "name": "Hungary",
+      "surname": "",
+      "independant": true,
+      "color": "#401A72"
+    },
+    {
+      "svgId": "ID",
+      "name": "Indonesia",
+      "surname": "",
+      "independant": true,
+      "color": "#FF0FE1"
+    },
+    {
+      "svgId": "IE",
+      "name": "Ireland",
+      "surname": "",
+      "independant": true,
+      "color": "#A5A7EF"
+    },
+    {
+      "svgId": "IL",
+      "name": "Israel",
+      "surname": "",
+      "independant": true,
+      "color": "#829CCD"
+    },
+    {
+      "svgId": "IM",
+      "name": "Isle of Man",
+      "surname": "",
+      "independant": false,
+      "color": "#2D21B3"
+    },
+    {
+      "svgId": "IN",
+      "name": "India",
+      "surname": "",
+      "independant": true,
+      "color": "#C0256C"
+    },
+    {
+      "svgId": "IO",
+      "name": "British Indian Ocean Territory",
+      "surname": "",
+      "independant": false,
+      "color": "#767D44"
+    },
+    {
+      "svgId": "IQ",
+      "name": "Iraq",
+      "surname": "",
+      "independant": true,
+      "color": "#752585"
+    },
+    {
+      "svgId": "IR",
+      "name": "Iran",
+      "surname": "",
+      "independant": true,
+      "color": "#F707EC"
+    },
+    {
+      "svgId": "IS",
+      "name": "Iceland",
+      "surname": "",
+      "independant": true,
+      "color": "#747C9F"
+    },
+    {
+      "svgId": "IT",
+      "name": "Italy",
+      "surname": "",
+      "independant": true,
+      "color": "#1C9313"
+    },
+    {
+      "svgId": "JE",
+      "name": "Jersey",
+      "surname": "",
+      "independant": false,
+      "color": "#62D363"
+    },
+    {
+      "svgId": "JM",
+      "name": "Jamaica",
+      "surname": "",
+      "independant": true,
+      "color": "#47E29C"
+    },
+    {
+      "svgId": "JO",
+      "name": "Jordan",
+      "surname": "",
+      "independant": true,
+      "color": "#38ED0A"
+    },
+    {
+      "svgId": "JP",
+      "name": "Japan",
+      "surname": "",
+      "independant": true,
+      "color": "#44BECC"
+    },
+    {
+      "svgId": "KE",
+      "name": "Kenya",
+      "surname": "",
+      "independant": true,
+      "color": "#B1CD78"
+    },
+    {
+      "svgId": "KG",
+      "name": "Kyrgyzstan",
+      "surname": "",
+      "independant": true,
+      "color": "#C5E299"
+    },
+    {
+      "svgId": "KH",
+      "name": "Cambodia",
+      "surname": "",
+      "independant": true,
+      "color": "#D6EA28"
+    },
+    {
+      "svgId": "KI",
+      "name": "Kiribati",
+      "surname": "",
+      "independant": true,
+      "color": "#A4D2FE"
+    },
+    {
+      "svgId": "KM",
+      "name": "Comoros",
+      "surname": "",
+      "independant": true,
+      "color": "#550BC1"
+    },
+    {
+      "svgId": "KN",
+      "name": "Saint Kitts and Nevis",
+      "surname": "",
+      "independant": true,
+      "color": "#6A8FE2"
+    },
+    {
+      "svgId": "KP",
+      "name": "North Korea",
+      "surname": "",
+      "independant": true,
+      "color": "#8DE020"
+    },
+    {
+      "svgId": "KR",
+      "name": "South Korea",
+      "surname": "",
+      "independant": true,
+      "color": "#5FE2FD"
+    },
+    {
+      "svgId": "KW",
+      "name": "Kuwait",
+      "surname": "",
+      "independant": true,
+      "color": "#530838"
+    },
+    {
+      "svgId": "KY",
+      "name": "Cayman Islands",
+      "surname": "",
+      "independant": false,
+      "color": "#9B5040"
+    },
+    {
+      "svgId": "KZ",
+      "name": "Kazakhstan",
+      "surname": "",
+      "independant": true,
+      "color": "#A06FD2"
+    },
+    {
+      "svgId": "LA",
+      "name": "Laos",
+      "surname": "",
+      "independant": true,
+      "color": "#CF952B"
+    },
+    {
+      "svgId": "LB",
+      "name": "Lebanon",
+      "surname": "",
+      "independant": true,
+      "color": "#4E6D51"
+    },
+    {
+      "svgId": "LC",
+      "name": "Saint Lucia",
+      "surname": "",
+      "independant": true,
+      "color": "#3F5B4E"
+    },
+    {
+      "svgId": "LI",
+      "name": "Liechtenstein",
+      "surname": "",
+      "independant": true,
+      "color": "#A6478D"
+    },
+    {
+      "svgId": "LK",
+      "name": "Sri Lanka",
+      "surname": "",
+      "independant": true,
+      "color": "#C93947"
+    },
+    {
+      "svgId": "LR",
+      "name": "Liberia",
+      "surname": "",
+      "independant": true,
+      "color": "#64E715"
+    },
+    {
+      "svgId": "LS",
+      "name": "Lesotho",
+      "surname": "",
+      "independant": true,
+      "color": "#6AC5D9"
+    },
+    {
+      "svgId": "LT",
+      "name": "Lithuania",
+      "surname": "",
+      "independant": true,
+      "color": "#286CA2"
+    },
+    {
+      "svgId": "LU",
+      "name": "Luxembourg",
+      "surname": "",
+      "independant": true,
+      "color": "#2353D2"
+    },
+    {
+      "svgId": "LV",
+      "name": "Latvia",
+      "surname": "",
+      "independant": true,
+      "color": "#EB26AA"
+    },
+    {
+      "svgId": "LY",
+      "name": "Libya",
+      "surname": "",
+      "independant": true,
+      "color": "#C6681D"
+    },
+    {
+      "svgId": "MA",
+      "name": "Morocco",
+      "surname": "",
+      "independant": true,
+      "color": "#D268EF"
+    },
+    {
+      "svgId": "MC",
+      "name": "Monaco",
+      "surname": "",
+      "independant": true,
+      "color": "#071FDC"
+    },
+    {
+      "svgId": "MD",
+      "name": "Moldova",
+      "surname": "",
+      "independant": true,
+      "color": "#473A90"
+    },
+    {
+      "svgId": "ME",
+      "name": "Montenegro",
+      "surname": "",
+      "independant": true,
+      "color": "#322BD0"
+    },
+    {
+      "svgId": "MF",
+      "name": "St Martin",
+      "surname": "",
+      "independant": false,
+      "color": "#9E9EA5"
+    },
+    {
+      "svgId": "MG",
+      "name": "Madagascar",
+      "surname": "",
+      "independant": true,
+      "color": "#2B70C6"
+    },
+    {
+      "svgId": "MH",
+      "name": "Marshall Islands",
+      "surname": "",
+      "independant": true,
+      "color": "#143ED3"
+    },
+    {
+      "svgId": "MK",
+      "name": "North Macedonia",
+      "surname": "",
+      "independant": true,
+      "color": "#ABCAE4"
+    },
+    {
+      "svgId": "ML",
+      "name": "Mali",
+      "surname": "",
+      "independant": true,
+      "color": "#AD701D"
+    },
+    {
+      "svgId": "MM",
+      "name": "Myanmar",
+      "surname": "",
+      "independant": true,
+      "color": "#31FC7C"
+    },
+    {
+      "svgId": "MN",
+      "name": "Mongolia",
+      "surname": "",
+      "independant": true,
+      "color": "#A2E8CF"
+    },
+    {
+      "svgId": "MO",
+      "name": "Macao",
+      "surname": "",
+      "independant": false,
+      "color": "#69D96B"
+    },
+    {
+      "svgId": "MP",
+      "name": "Northern Mariana Islands",
+      "surname": "",
+      "independant": false,
+      "color": "#14E3C3"
+    },
+    {
+      "svgId": "MQ",
+      "name": "Martinique",
+      "surname": "",
+      "independant": false,
+      "color": "#9ECD09"
+    },
+    {
+      "svgId": "MR",
+      "name": "Mauritania",
+      "surname": "",
+      "independant": true,
+      "color": "#F515FE"
+    },
+    {
+      "svgId": "MS",
+      "name": "Montserrat",
+      "surname": "",
+      "independant": false,
+      "color": "#B66EE9"
+    },
+    {
+      "svgId": "MT",
+      "name": "Malta",
+      "surname": "",
+      "independant": true,
+      "color": "#638003"
+    },
+    {
+      "svgId": "MU",
+      "name": "Mauritius",
+      "surname": "",
+      "independant": true,
+      "color": "#5FC4DA"
+    },
+    {
+      "svgId": "MV",
+      "name": "Maldives",
+      "surname": "",
+      "independant": true,
+      "color": "#71B3EC"
+    },
+    {
+      "svgId": "MW",
+      "name": "Malawi",
+      "surname": "",
+      "independant": true,
+      "color": "#467B46"
+    },
+    {
+      "svgId": "MX",
+      "name": "Mexico",
+      "surname": "",
+      "independant": true,
+      "color": "#8203BC"
+    },
+    {
+      "svgId": "MY",
+      "name": "Malaysia",
+      "surname": "",
+      "independant": true,
+      "color": "#7FC1AC"
+    },
+    {
+      "svgId": "MZ",
+      "name": "Mozambique",
+      "surname": "",
+      "independant": true,
+      "color": "#1D029B"
+    },
+    {
+      "svgId": "NA",
+      "name": "Namibia",
+      "surname": "",
+      "independant": true,
+      "color": "#C913E0"
+    },
+    {
+      "svgId": "NC",
+      "name": "New Caledonia",
+      "surname": "",
+      "independant": false,
+      "color": "#D89593"
+    },
+    {
+      "svgId": "NE",
+      "name": "Niger",
+      "surname": "",
+      "independant": true,
+      "color": "#E29A83"
+    },
+    {
+      "svgId": "NF",
+      "name": "Norfolk Island",
+      "surname": "",
+      "independant": false,
+      "color": "#123410"
+    },
+    {
+      "svgId": "NG",
+      "name": "Nigeria",
+      "surname": "",
+      "independant": true,
+      "color": "#D76233"
+    },
+    {
+      "svgId": "NI",
+      "name": "Nicaragua",
+      "surname": "",
+      "independant": true,
+      "color": "#7E88E4"
+    },
+    {
+      "svgId": "NL",
+      "name": "Netherlands",
+      "surname": "",
+      "independant": true,
+      "color": "#613591"
+    },
+    {
+      "svgId": "NO",
+      "name": "Norway",
+      "surname": "",
+      "independant": true,
+      "color": "#5245B6"
+    },
+    {
+      "svgId": "NP",
+      "name": "Nepal",
+      "surname": "",
+      "independant": true,
+      "color": "#2DA278"
+    },
+    {
+      "svgId": "NR",
+      "name": "Nauru",
+      "surname": "",
+      "independant": true,
+      "color": "#1BC862"
+    },
+    {
+      "svgId": "NU",
+      "name": "Niue",
+      "surname": "",
+      "independant": false,
+      "color": "#BE3EE8"
+    },
+    {
+      "svgId": "NZ",
+      "name": "New Zealand",
+      "surname": "",
+      "independant": true,
+      "color": "#9052BB"
+    },
+    {
+      "svgId": "OM",
+      "name": "Oman",
+      "surname": "",
+      "independant": true,
+      "color": "#3E5C41"
+    },
+    {
+      "svgId": "PA",
+      "name": "Panama",
+      "surname": "",
+      "independant": true,
+      "color": "#C7E694"
+    },
+    {
+      "svgId": "PE",
+      "name": "Peru",
+      "surname": "",
+      "independant": true,
+      "color": "#B45401"
+    },
+    {
+      "svgId": "PF",
+      "name": "French Polynesia",
+      "surname": "",
+      "independant": false,
+      "color": "#87AB55"
+    },
+    {
+      "svgId": "PG",
+      "name": "Papua New Guinea",
+      "surname": "",
+      "independant": true,
+      "color": "#E797DC"
+    },
+    {
+      "svgId": "PH",
+      "name": "Philippines",
+      "surname": "",
+      "independant": true,
+      "color": "#CAF9F2"
+    },
+    {
+      "svgId": "PK",
+      "name": "Pakistan",
+      "surname": "",
+      "independant": true,
+      "color": "#20A57F"
+    },
+    {
+      "svgId": "PL",
+      "name": "Poland",
+      "surname": "",
+      "independant": true,
+      "color": "#71D75E"
+    },
+    {
+      "svgId": "PM",
+      "name": "Saint Pierre and Miquelon",
+      "surname": "",
+      "independant": false,
+      "color": "#C9199E"
+    },
+    {
+      "svgId": "PN",
+      "name": "Pitcairn Islands",
+      "surname": "",
+      "independant": false,
+      "color": "#C89E4A"
+    },
+    {
+      "svgId": "PR",
+      "name": "Puerto Rico",
+      "surname": "",
+      "independant": false,
+      "color": "#0D876A"
+    },
+    {
+      "svgId": "PS",
+      "name": "Palestine",
+      "surname": "",
+      "independant": false,
+      "color": "#76C65A"
+    },
+    {
+      "svgId": "PT",
+      "name": "Portugal",
+      "surname": "",
+      "independant": true,
+      "color": "#E9DB50"
+    },
+    {
+      "svgId": "PW",
+      "name": "Palau",
+      "surname": "",
+      "independant": true,
+      "color": "#C60495"
+    },
+    {
+      "svgId": "PY",
+      "name": "Paraguay",
+      "surname": "",
+      "independant": true,
+      "color": "#1C60DE"
+    },
+    {
+      "svgId": "QA",
+      "name": "Qatar",
+      "surname": "",
+      "independant": true,
+      "color": "#71E15A"
+    },
+    {
+      "svgId": "RE",
+      "name": "Reunion",
+      "surname": "",
+      "independant": false,
+      "color": "#F89D52"
+    },
+    {
+      "svgId": "RO",
+      "name": "Romania",
+      "surname": "",
+      "independant": true,
+      "color": "#5BD487"
+    },
+    {
+      "svgId": "RS",
+      "name": "Serbia",
+      "surname": "",
+      "independant": true,
+      "color": "#2309F0"
+    },
+    {
+      "svgId": "RU",
+      "name": "Russia",
+      "surname": "",
+      "independant": true,
+      "color": "#58E3DC"
+    },
+    {
+      "svgId": "RW",
+      "name": "Rwanda",
+      "surname": "",
+      "independant": true,
+      "color": "#AC03D8"
+    },
+    {
+      "svgId": "SA",
+      "name": "Saudi Arabia",
+      "surname": "",
+      "independant": true,
+      "color": "#7FAD96"
+    },
+    {
+      "svgId": "SB",
+      "name": "Solomon Islands",
+      "surname": "",
+      "independant": true,
+      "color": "#DED073"
+    },
+    {
+      "svgId": "SC",
+      "name": "Seychelles",
+      "surname": "",
+      "independant": true,
+      "color": "#EFD465"
+    },
+    {
+      "svgId": "SD",
+      "name": "Sudan",
+      "surname": "",
+      "independant": true,
+      "color": "#066B0E"
+    },
+    {
+      "svgId": "SE",
+      "name": "Sweden",
+      "surname": "",
+      "independant": true,
+      "color": "#0EDCA7"
+    },
+    {
+      "svgId": "SG",
+      "name": "Singapore",
+      "surname": "",
+      "independant": true,
+      "color": "#5E9D78"
+    },
+    {
+      "svgId": "SH",
+      "name": "Saint Helena, Ascension and Tristan da Cunha",
+      "surname": "",
+      "independant": false,
+      "color": "#921F22"
+    },
+    {
+      "svgId": "SI",
+      "name": "Slovenia",
+      "surname": "",
+      "independant": true,
+      "color": "#3EF38B"
+    },
+    {
+      "svgId": "SJ",
+      "name": "Svalbard and Jan Mayen",
+      "surname": "",
+      "independant": false,
+      "color": "#11B9EB"
+    },
+    {
+      "svgId": "SK",
+      "name": "Slovakia",
+      "surname": "",
+      "independant": true,
+      "color": "#01A866"
+    },
+    {
+      "svgId": "SL",
+      "name": "Sierra Leone",
+      "surname": "",
+      "independant": true,
+      "color": "#1A0985"
+    },
+    {
+      "svgId": "SM",
+      "name": "San Marino",
+      "surname": "",
+      "independant": true,
+      "color": "#69A4E8"
+    },
+    {
+      "svgId": "SN",
+      "name": "Senegal",
+      "surname": "",
+      "independant": true,
+      "color": "#DCBA82"
+    },
+    {
+      "svgId": "SO",
+      "name": "Somalia",
+      "surname": "",
+      "independant": true,
+      "color": "#CF2BB0"
+    },
+    {
+      "svgId": "SR",
+      "name": "Suriname",
+      "surname": "",
+      "independant": true,
+      "color": "#DC640C"
+    },
+    {
+      "svgId": "SS",
+      "name": "South Sudan",
+      "surname": "",
+      "independant": true,
+      "color": "#C312BC"
+    },
+    {
+      "svgId": "ST",
+      "name": "Sao Tome and Principe",
+      "surname": "",
+      "independant": true,
+      "color": "#CCF93A"
+    },
+    {
+      "svgId": "SV",
+      "name": "El Salvador",
+      "surname": "",
+      "independant": true,
+      "color": "#DA571A"
+    },
+    {
+      "svgId": "SX",
+      "name": "Sint Maarten",
+      "surname": "",
+      "independant": false,
+      "color": "#9AD84C"
+    },
+    {
+      "svgId": "SY",
+      "name": "Syria",
+      "surname": "",
+      "independant": true,
+      "color": "#A4C9B7"
+    },
+    {
+      "svgId": "SZ",
+      "name": "Eswatini",
+      "surname": "",
+      "independant": true,
+      "color": "#39FD47"
+    },
+    {
+      "svgId": "TC",
+      "name": "Turks and Caicos Islands",
+      "surname": "",
+      "independant": false,
+      "color": "#A8221F"
+    },
+    {
+      "svgId": "TD",
+      "name": "Chad",
+      "surname": "",
+      "independant": true,
+      "color": "#A94CEF"
+    },
+    {
+      "svgId": "TF",
+      "name": "French Southern Territories",
+      "surname": "",
+      "independant": false,
+      "color": "#77516E"
+    },
+    {
+      "svgId": "TG",
+      "name": "Togo",
+      "surname": "",
+      "independant": true,
+      "color": "#64EAD1"
+    },
+    {
+      "svgId": "TH",
+      "name": "Thailand",
+      "surname": "",
+      "independant": true,
+      "color": "#CCA3A4"
+    },
+    {
+      "svgId": "TJ",
+      "name": "Tajikistan",
+      "surname": "",
+      "independant": true,
+      "color": "#9D280F"
+    },
+    {
+      "svgId": "TK",
+      "name": "Tokelau",
+      "surname": "",
+      "independant": false,
+      "color": "#A835F1"
+    },
+    {
+      "svgId": "TL",
+      "name": "Timor-Leste (East Timor)",
+      "surname": "",
+      "independant": true,
+      "color": "#249115"
+    },
+    {
+      "svgId": "TM",
+      "name": "Turkmenistan",
+      "surname": "",
+      "independant": true,
+      "color": "#A4835F"
+    },
+    {
+      "svgId": "TN",
+      "name": "Tunisia",
+      "surname": "",
+      "independant": true,
+      "color": "#A391E1"
+    },
+    {
+      "svgId": "TO",
+      "name": "Tonga",
+      "surname": "",
+      "independant": true,
+      "color": "#C21F84"
+    },
+    {
+      "svgId": "TR",
+      "name": "Turkey",
+      "surname": "",
+      "independant": true,
+      "color": "#E602F8"
+    },
+    {
+      "svgId": "TT",
+      "name": "Trinidad and Tobago",
+      "surname": "",
+      "independant": true,
+      "color": "#AFCFF6"
+    },
+    {
+      "svgId": "TV",
+      "name": "Tuvalu",
+      "surname": "",
+      "independant": true,
+      "color": "#211996"
+    },
+    {
+      "svgId": "TW",
+      "name": "Taiwan",
+      "surname": "",
+      "independant": false,
+      "color": "#CABE97"
+    },
+    {
+      "svgId": "TZ",
+      "name": "Tanzania",
+      "surname": "",
+      "independant": true,
+      "color": "#A6AD43"
+    },
+    {
+      "svgId": "UA",
+      "name": "Ukraine",
+      "surname": "",
+      "independant": true,
+      "color": "#E86D4E"
+    },
+    {
+      "svgId": "UG",
+      "name": "Uganda",
+      "surname": "",
+      "independant": true,
+      "color": "#CAB1AC"
+    },
+    {
+      "svgId": "UM",
+      "name": "United States Minor Outlying Islands",
+      "surname": "",
+      "independant": false,
+      "color": "#B87634"
+    },
+    {
+      "svgId": "US",
+      "name": "United States",
+      "surname": "",
+      "independant": true,
+      "color": "#4214FC"
+    },
+    {
+      "svgId": "UY",
+      "name": "Uruguay",
+      "surname": "",
+      "independant": true,
+      "color": "#1F492D"
+    },
+    {
+      "svgId": "UZ",
+      "name": "Uzbekistan",
+      "surname": "",
+      "independant": true,
+      "color": "#0C4DDE"
+    },
+    {
+      "svgId": "VA",
+      "name": "Holy See",
+      "surname": "",
+      "independant": false,
+      "color": "#A14782"
+    },
+    {
+      "svgId": "VC",
+      "name": "Saint Vincent and the Grenadines",
+      "surname": "",
+      "independant": true,
+      "color": "#465679"
+    },
+    {
+      "svgId": "VE",
+      "name": "Venezuela",
+      "surname": "",
+      "independant": true,
+      "color": "#1A44C7"
+    },
+    {
+      "svgId": "VG",
+      "name": "British Virgin Islands",
+      "surname": "",
+      "independant": false,
+      "color": "#7D717B"
+    },
+    {
+      "svgId": "VI",
+      "name": "Virgin Islands (U.S.)",
+      "surname": "",
+      "independant": false,
+      "color": "#5B274A"
+    },
+    {
+      "svgId": "VN",
+      "name": "Viet Nam",
+      "surname": "",
+      "independant": true,
+      "color": "#F70762"
+    },
+    {
+      "svgId": "VU",
+      "name": "Vanuatu",
+      "surname": "",
+      "independant": true,
+      "color": "#F2B629"
+    },
+    {
+      "svgId": "WF",
+      "name": "Wallis and Futuna",
+      "surname": "",
+      "independant": false,
+      "color": "#D48DA2"
+    },
+    {
+      "svgId": "WS",
+      "name": "Samoa",
+      "surname": "",
+      "independant": true,
+      "color": "#79759E"
+    },
+    {
+      "svgId": "XK",
+      "name": "Kosovo",
+      "surname": "",
+      "independant": false,
+      "color": "#00934B"
+    },
+    {
+      "svgId": "YE",
+      "name": "Yemen",
+      "surname": "",
+      "independant": true,
+      "color": "#B23AA0"
+    },
+    {
+      "svgId": "YT",
+      "name": "Mayotte",
+      "surname": "",
+      "independant": false,
+      "color": "#C40662"
+    },
+    {
+      "svgId": "ZA",
+      "name": "South Africa",
+      "surname": "",
+      "independant": true,
+      "color": "#2D1638"
+    },
+    {
+      "svgId": "ZM",
+      "name": "Zambia",
+      "surname": "",
+      "independant": true,
+      "color": "#D8958D"
+    },
+    {
+      "svgId": "ZW",
+      "name": "Zimbabwe",
+      "surname": "",
+      "independant": true,
+      "color": "#7D0594"
+    }
+  ]
+]

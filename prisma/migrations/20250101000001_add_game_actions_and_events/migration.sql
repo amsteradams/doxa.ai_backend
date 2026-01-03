@@ -34,3 +34,5 @@ ALTER TABLE "game_actions" ADD CONSTRAINT "game_actions_user_id_fkey" FOREIGN KE
 ALTER TABLE "game_events" ADD CONSTRAINT "game_events_game_id_fkey" FOREIGN KEY ("game_id") REFERENCES "games"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 
+
+

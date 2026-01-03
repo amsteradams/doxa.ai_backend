@@ -1,7 +1,26 @@
+// IMPORTANT: Utiliser dotenv/config qui charge automatiquement le .env
+// AVANT tous les autres imports (y compris PrismaClient)
+import 'dotenv/config';
 import { PrismaClient, UserType, Difficulty } from '@prisma/client';
 import bcrypt from 'bcrypt';
 import fs from 'fs';
 import path from 'path';
+
+// Vérifier que DATABASE_URL est chargé
+if (!process.env.DATABASE_URL) {
+  const cwd = process.cwd();
+  const backendDir = cwd.endsWith('backend') ? cwd : path.join(cwd, 'backend');
+  const envPath = path.join(backendDir, '.env');
+  
+  console.error('❌ DATABASE_URL non trouvé dans les variables d\'environnement');
+  console.error(`   Répertoire courant: ${cwd}`);
+  console.error(`   Fichier .env attendu: ${envPath}`);
+  console.error(`   Fichier .env existe: ${fs.existsSync(envPath) ? '✅' : '❌'}`);
+  console.error('   Vérifiez que le fichier .env existe et contient DATABASE_URL');
+  process.exit(1);
+}
+
+console.log(`✅ DATABASE_URL chargé: ${process.env.DATABASE_URL.substring(0, 50)}...`);
 
 const prisma = new PrismaClient();
 
@@ -47,11 +66,11 @@ async function main() {
   // SEED PRESET MODERN WORLD
   // ============================================
 
-  // Chemin vers les fichiers du preset (depuis la racine du projet)
-  // Si exécuté depuis backend/, on remonte d'un niveau
+  // Chemin vers les fichiers du preset (maintenant dans backend/)
   const cwd = process.cwd();
-  const projectRoot = cwd.endsWith('backend') ? path.join(cwd, '..') : cwd;
-  const presetDir = path.join(projectRoot, 'preset/modern_world');
+  // Le preset est maintenant dans backend/preset/
+  const backendDir = cwd.endsWith('backend') ? cwd : path.join(cwd, 'backend');
+  const presetDir = path.join(backendDir, 'preset/modern_world');
   const countryDataPath = path.join(presetDir, 'country-data.json');
   const modernWorldPath = path.join(presetDir, 'modern_world.json');
   const advisorPromptPath = path.join(presetDir, 'advisorPrompt.txt');
@@ -500,6 +519,8 @@ async function main() {
     // ============================================
     // RECRÉER test_requetes.txt avec les nouveaux UUIDs
     // ============================================
+    // Le fichier test_requetes.txt est à la racine du projet (un niveau au-dessus de backend/)
+    const projectRoot = cwd.endsWith('backend') ? path.join(cwd, '..') : cwd;
     const testRequetesPath = path.join(projectRoot, 'test_requetes.txt');
     
     // Supprimer le fichier s'il existe

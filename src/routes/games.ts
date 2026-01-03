@@ -33,7 +33,7 @@ async function generateReactions(
     const isModernEra = parseInt(startingDate.substring(0, 4)) >= 2010;
 
     // Charger le prompt de réactions
-    const reactionsPromptPath = path.join(__dirname, '../../preset/modern_world/reactionsPrompt.txt');
+    const reactionsPromptPath = path.join(__dirname, '../preset/modern_world/reactionsPrompt.txt');
     let reactionsPrompt = '';
     if (fs.existsSync(reactionsPromptPath)) {
       reactionsPrompt = fs.readFileSync(reactionsPromptPath, 'utf-8').trim();

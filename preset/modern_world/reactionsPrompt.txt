@@ -1,0 +1,101 @@
+You are tasked with generating social reactions to recent game events and player actions.
+
+CONTEXT:
+- Current in-game date: {inGameCurrentDate}
+- Starting date (preset): {startingDate} - USE THIS to determine if tweets (>= 2010) or tavern (< 2010)
+- Recent events: {events}
+- Player actions this turn: {userActions}
+- Selected country: {selectedCountry}
+- Game difficulty: {difficulty}
+- Game trame (historical context): {trame}
+
+REACTION FORMAT:
+You must generate approximately 20 reactions. The format depends on the era:
+
+IMPORTANT: Use the starting date of the preset (provided in the context) to determine the format, NOT the current in-game date.
+
+IF starting date >= 2010 (Modern Era - Tweets):
+- Each reaction is a tweet with:
+  - username: A realistic Twitter username (e.g., "@JeanDupont", "@Marie_France", "@SwissPatriot")
+  - content: A tweet message (max 280 characters, can be sarcastic, supportive, critical, or trolling)
+  - likes: A realistic number (0 to 10000+)
+  - retweets: A realistic number (0 to 5000+)
+  - quotes: A realistic number (0 to 1000+)
+
+IF starting date < 2010 (Historical Era - Tavern Messages):
+- Each reaction is a tavern conversation with:
+  - username: A contextual name based on the era, country, and culture (e.g., "Un marchand français", "Un soldat suisse", "Un diplomate allemand")
+  - content: A message as if speaking to another person in a tavern (casual, can be gossip, opinions, concerns, or jokes)
+
+REACTION CONTENT RULES:
+- Reactions should primarily concern:
+  1. Player actions (especially recent/controversial ones)
+  2. Recent events (especially impactful or surprising ones)
+  3. Current political/diplomatic situations
+- Reactions can be:
+  - Supportive or critical of player actions
+  - Random observations about the world state
+  - Trolling or sarcastic comments
+  - Gossip or rumors
+  - Expressions of concern or hope
+- Make reactions diverse in tone and perspective
+- For tweets: Use modern internet language, hashtags, emojis (sparingly)
+- For tavern: Use period-appropriate language, casual speech, regional expressions
+
+IMPORTANT DISTRIBUTION RULE:
+- Approximately 80% of reactions should come from inhabitants of the selected country (the player's country)
+- Approximately 20% of reactions should come from inhabitants of other countries
+- This distribution reflects that most reactions are from the player's own population, with some international reactions
+
+OUTPUT FORMAT:
+Return a JSON object with a "reactions" array. Each reaction object must contain:
+- username (string)
+- content (string)
+- For tweets only: likes (number), retweets (number), quotes (number)
+
+Example for tweets (2010+):
+{
+  "reactions": [
+    {
+      "username": "@SwissPatriot",
+      "content": "La France veut nous annexer ? 😂 Bonne chance avec notre armée et notre neutralité ! #SwissStrong",
+      "likes": 1247,
+      "retweets": 89,
+      "quotes": 12
+    },
+    {
+      "username": "@FrenchNationalist",
+      "content": "Enfin un gouvernement qui ose ! La Suisse devrait être française depuis longtemps 🇫🇷",
+      "likes": 3421,
+      "retweets": 567,
+      "quotes": 45
+    }
+  ]
+}
+
+Example for tavern (< 2010):
+{
+  "reactions": [
+    {
+      "username": "Un marchand français",
+      "content": "Tu as entendu ? Le roi veut annexer la Suisse ! Moi je dis que c'est une folie, ça va nous coûter cher en guerre."
+    },
+    {
+      "username": "Un soldat suisse",
+      "content": "Les Français pensent qu'on va se laisser faire ? On a repoussé bien des armées avant eux !"
+    }
+  ]
+}
+
+CRITICAL DISTRIBUTION RULE:
+- Generate approximately 20 reactions
+- 80% of reactions (approximately 16) must come from inhabitants of the selected country (the player's country)
+- 20% of reactions (approximately 4) must come from inhabitants of other countries
+- For tweets: usernames should reflect the country (e.g., "@JeanDupont" for France, "@SwissPatriot" for Switzerland)
+- For tavern: usernames should reflect the country (e.g., "Un marchand français" for France, "Un soldat suisse" for Switzerland)
+
+CRITICAL:
+- Make reactions diverse and realistic
+- Focus on recent events and player actions
+- Return ONLY valid JSON, no additional text
+

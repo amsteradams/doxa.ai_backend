@@ -10,3 +10,5 @@ ALTER TABLE "games" ADD CONSTRAINT "games_popularity_check" CHECK ("popularity" 
 
 
 
+
+

@@ -9,22 +9,23 @@ dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const projectRoot = path.resolve(__dirname, '../../');
+// Le preset est maintenant dans backend/preset/
+const backendDir = path.resolve(__dirname, '..');
 
 async function generateGauges() {
   console.log('🚀 Démarrage de la génération des jauges pour les pays...\n');
 
   // Lire country-data.json
-  const countryDataPath = path.join(projectRoot, 'preset/modern_world/country-data.json');
+  const countryDataPath = path.join(backendDir, 'preset/modern_world/country-data.json');
   const countryData = JSON.parse(fs.readFileSync(countryDataPath, 'utf-8'));
 
   // Lire modern_world.json pour obtenir la startingDate
-  const modernWorldPath = path.join(projectRoot, 'preset/modern_world/modern_world.json');
+  const modernWorldPath = path.join(backendDir, 'preset/modern_world/modern_world.json');
   const modernWorld = JSON.parse(fs.readFileSync(modernWorldPath, 'utf-8'));
   const startingDate = modernWorld.startingDate || '2020-01-01';
 
   // Lire le lore pour le contexte
-  const lorePath = path.join(projectRoot, 'preset/modern_world/lore.txt');
+  const lorePath = path.join(backendDir, 'preset/modern_world/lore.txt');
   const lore = fs.existsSync(lorePath) ? fs.readFileSync(lorePath, 'utf-8') : '';
 
   // Extraire tous les pays (exclure "World")
@@ -42,7 +43,7 @@ async function generateGauges() {
   console.log(`📊 ${countries.length} pays à traiter\n`);
 
   // Fichier de sortie
-  const outputPath = path.join(projectRoot, 'preset/modern_world/country_gauges.json');
+  const outputPath = path.join(backendDir, 'preset/modern_world/country_gauges.json');
   let existingGauges = {};
   
   // Charger les jauges existantes si le fichier existe
